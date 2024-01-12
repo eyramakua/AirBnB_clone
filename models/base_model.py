@@ -27,7 +27,7 @@ class BaseModel:
 
     def __str__(self):
         """Should print some attributes"""
-        return f"[{self.__class__.name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict}"
 
     def save(self):
         """Updating updated_at with the current datetime"""
