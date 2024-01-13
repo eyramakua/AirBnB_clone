@@ -27,7 +27,7 @@ class BaseModel:
 
     def __str__(self):
         """Should print some attributes"""
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """Updating updated_at with the current datetime"""
@@ -35,6 +35,7 @@ class BaseModel:
 
     def to_dict(self):
         """Returns dictionary containing all keys/values"""
+        object_dict = self.__dict__.copy()
         object_dict['__class__'] = self.__class__.__name__
         object_dict['created_at'] = self.created_at.isoformat()
         object_dict['updated_at'] = self.updated_at.isoformat()
